@@ -8,18 +8,26 @@
 from json import loads
 from os import chdir
 from os import system
+from sys import argv
 
-PROJECT_DIR = '/tmp' # change this directory according you root project directory
-PACKAGE_JSON = 'package.json' # default node module configurations
+PROJECT_DIR = '../vendafacil' # change this directory according you root project directory
+PACKAGE_JSON = '../vendaFacil/package.json' # default node module configurations
 
 def main():
+    if len(argv) < 3:
+        print(f'use: {argv[0]} <package.json> <nodejs_project_directory>')
+        return 
+    
+    PROJECT_DIR=argv[2]
+    PACKAGE_JSON=argv[1]
+
     libs_to_exclude = [
         'react', 
         'react-dom', 
         'react-native'
     ]
 
-    with open('package.json') as file:
+    with open(PACKAGE_JSON) as file:
         file_data = file.read()
         data_filtered = file_data.replace('\n', '').replace(' ', '')
         data_dict = loads(data_filtered)
