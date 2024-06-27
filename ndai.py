@@ -1,17 +1,12 @@
 #!/usr/bin/env python3
-"""
-	Este é um simples script que facilita a instalação de versões de lib recentes
-	de um projecto que está sendo instalado.
-	
-	Next.js 
-"""
+
 from json import loads
 from os import chdir
 from os import system
 from sys import argv
 
-PROJECT_DIR = '../vendafacil' # change this directory according you root project directory
-PACKAGE_JSON = '../vendaFacil/package.json' # default node module configurations
+PROJECT_DIR = ''
+PACKAGE_JSON = ''
 
 def main():
     if len(argv) < 3:
@@ -25,7 +20,7 @@ def main():
         'react', 
         'react-dom', 
         'react-native'
-    ]
+    ] # ajuste a lista de excluidos por aqui
 
     with open(PACKAGE_JSON) as file:
         file_data = file.read()
@@ -51,7 +46,7 @@ def main():
                     for lib in libs:
                         try:
                             print(f'[INFO] installing {lib} on project ... please wait')
-                            if not system(f'yarn add {lib}@latest'):
+                            if not system(f'yarn add {lib}'):
                                 print(f'lib {lib} installed sucess!')
                                 print()
                             else:
