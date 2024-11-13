@@ -1,18 +1,21 @@
-# NDAI *Nodejs Dependencie Auto Install*
-Script that install node dependecies on your empty project 
+# NDAI (Node Dependencies Auto Install)
+This script allow you to automate dependencies configurations on your node based project such as 
+`ReactJS`, `NextJS` or `NodeJS`.
 
-## H0w t0 1nst4ll that script 
-First you need to install python on your operating system.
-
-Second, clone the repostitory 
+## How can you get This script??? :-/ 
+* First, you will need to have python installed on your operating system.
+* Th3n clone and run, such as bellow: 
 ```bash
   git clone https://github.com/mr0xff/ndai.git
-```
-Then enter into directory and configure target empty project, source package that contain the dependencies.` package.json` file.
-
-```bash
   cd ndai/
-  python3 ndai.py
+  chmod +x node_installer.py
+  ./node_installer.py your_package.json
 ```
+For windows 
+```powershell
+  # ....
+  python node_installer.py your_package.json
+```
+> Note: You will need to run the script in the target project directory
 
-*Thanks* :)
+*Thanks!!* :)
